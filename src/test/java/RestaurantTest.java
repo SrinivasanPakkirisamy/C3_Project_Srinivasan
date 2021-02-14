@@ -58,4 +58,22 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void get_order_total_should_return_total_price_of_all_added_items() {
+        restaurant.addToMenu("Vegetable Burger",120);
+        int orderTotal = restaurant.getOrderTotal("Sweet corn soup", "Vegetable Burger");
+        int expectedTotal = 239;
+        assertEquals(expectedTotal , orderTotal);
+    }
+
+    @Test
+    public void get_order_total_should_return_and_display_0_when_no_item_is_added_to_order() {
+        int orderTotal = restaurant.getOrderTotal();
+        int expectedTotal = 0;
+        assertEquals(expectedTotal , orderTotal);
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
