@@ -62,4 +62,13 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderTotal(String... orderItems) {
+        int orderTotal = 0;
+        for (String item : orderItems) {
+            Item itemDetails = findItemByName(item);
+            orderTotal += itemDetails.getPrice();
+        }
+        return orderTotal;
+    }
+
 }
